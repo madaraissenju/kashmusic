@@ -1,7 +1,6 @@
 const UserModel = require("../../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs');
-const mongoose = require('mongoose');
 
 //************************************** VALIDATION FUNCTIONS ****************************** */
 
@@ -13,7 +12,7 @@ const isValidRequest = (object) => Object.keys(object).length > 0;
 
 const UserLogin = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { email, password } = req.body;
 
     if (!isValidRequest(req.body)) {
       return res.status(400).send({
@@ -23,10 +22,6 @@ const UserLogin = async (req, res) => {
     }
 
     const findData = {};
-
-    if (isValid(name)) {
-      findData.name= name;
-    }
 
     if (isValid(email)) {
       findData.email = email;
@@ -82,4 +77,4 @@ const UserLogin = async (req, res) => {
 
 //********************** EXPORTING HANDLER ********************** */
 
-module.exports = UserLogin
+module.exports = UserLogin;

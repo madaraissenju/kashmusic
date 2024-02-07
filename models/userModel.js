@@ -15,4 +15,5 @@ const userSchema = new mongoose.Schema({
     }
 },{timestamps: true})
 
-// playlistModel.js
+
+module.exports = mongoose.model("User", userSchema);

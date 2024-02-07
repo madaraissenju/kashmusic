@@ -1,6 +1,7 @@
 const UserModel = require("../../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
 
 //************************************** VALIDATION FUNCTIONS ****************************** */
 

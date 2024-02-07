@@ -1,41 +1,38 @@
 const UserModel = require("../../models/userModel");
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
 //*******************VALIDATIONS*********************/
 
 const isValid = function (value) {
-    if (typeof (value) === 'undefined' || value === null) return false
-    if (typeof (value) === 'string' && value.trim().length == 0) return false
-    return true
+    if (typeof (value) === 'undefined' || value === null) return false;
+    if (typeof (value) === 'string' && value.trim().length == 0) return false;
+    return true;
 }
 
 const isValidRequestBody = function (reqBody) {
-    return Object.keys(reqBody).length > 0
+    return Object.keys(reqBody).length > 0;
 }
 
 //****************** CREATE ADMIN********************/
 
 const createUser = async function (req, res) {
-
-
     try {
-
-        const queryParams = req.query
-        const requestBody = req.body
+        const queryParams = req.query;
+        const requestBody = req.body;
 
         if (isValidRequestBody(queryParams)) {
             return res
                 .status(400)
-                .send({ status: false, message: "invalid request" })
+                .send({ status: false, message: "Invalid request" });
         }
 
         if (!isValidRequestBody(requestBody)) {
             return res
                 .status(400)
-                .send({ status: false, message: "please provide input data" });
+                .send({ status: false, message: "Please provide input data" });
         }
 
-        const { name, email, password } = requestBody
+        const { name, email, password } = requestBody;
 
         if (!isValid(name)) {
             return res
@@ -46,38 +43,35 @@ const createUser = async function (req, res) {
         if (!isValid(email)) {
             return res
                 .status(400)
-                .send({ status: false, message: "email must be Provided" });
+                .send({ status: false, message: "Email must be provided" });
         }
 
-        if (! /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             return res
                 .status(400)
-                .send({ status: false, message: "enter a valid email" });
+                .send({ status: false, message: "Enter a valid email" });
         }
-
 
         if (!isValid(password)) {
             return res
                 .status(400)
-                .send({ status: false, message: "password must be provided" })
+                .send({ status: false, message: "Password must be provided" });
         }
 
-        const isEmailNotUnique = await UserModel.findOne({ email: email })
+        const isEmailNotUnique = await UserModel.findOne({ email: email });
 
         if (isEmailNotUnique) {
             return res
                 .status(409)
-                .send({ status: false, message: "email already exits" })
+                .send({ status: false, message: "Email already exists" });
         }
 
-       
-
-        // password Encryption
+        // Password Encryption
         const salt = await bcrypt.genSalt(13);
         const encryptedPassword = await bcrypt.hash(password, salt);
 
         const userDetails = {
-            name:  name,
+            name: name,
             email: email,
             password: encryptedPassword
         }
@@ -86,15 +80,13 @@ const createUser = async function (req, res) {
 
         res
             .status(201)
-            .send({ status: true, message: "new User Created", data: newUserEntry })
+            .send({ status: true, message: "New user created", data: newUserEntry });
 
     } catch (error) {
-
         res
             .status(500)
-            .send({ error: error.message })
-
+            .send({ error: error.message });
     }
 }
 
-module.exports = createUser
+module.exports = createUser;

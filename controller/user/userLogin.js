@@ -61,10 +61,12 @@ const UserLogin = async (req, res) => {
         expiresIn: "7d",
       });
 
-    res.status(200).send({
+    res.status(200). 
+    send({
       status: true,
       message: "User login successful",
-      data: userDetails, token
+      data: userDetails, 
+      token : token
     });
 
   } catch (error) {

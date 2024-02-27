@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const route = require('../KASHMUSIC/routes/route'); 
 const { default: mongoose } = require('mongoose');
 const app = express();
-const axios = require('axios');
 app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,7 +12,6 @@ mongoose.connect(process.env.DB_CONNECTION_STRING,
  { useNewUrlParser: true})
 .then( () => console.log("MongoDb is connected"))
 .catch ( err => console.log(err) )
-
 app.use('/', route);
 
 

@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const AdminModel = require('../models/adminModel')
+const AdminModel = require('../models/')
 const mongoose = require('mongoose')
 const express = require('express')
 

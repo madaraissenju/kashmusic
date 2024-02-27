@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 //********************MIDDLEWARE*********************//
 
 const AdminMiddleware = require('../middleWare/adminAuth')
+const UserMiddleware = require('../middleWare/userAuth')
+
 //**********************ADMIN*************************//
 const createAdmin =require("../controller/admin/adminRegister")
 const AdminLogin =require("../controller/admin/adminLogin");

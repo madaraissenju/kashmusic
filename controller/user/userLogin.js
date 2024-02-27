@@ -8,7 +8,7 @@ const isValid = (value) => typeof value !== "undefined" && value !== null && (ty
 
 const isValidRequest = (object) => Object.keys(object).length > 0;
 
-//**************************** ADMIN LOGIN ****************************** */
+//**************************** USER LOGIN ****************************** */
 
 const UserLogin = async (req, res) => {
   try {

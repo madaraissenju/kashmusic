@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require("cors");
 const bodyParser = require('body-parser');
-const route = require('./routes/route'); 
+const route = require('../KASHMUSIC/routes/route'); 
 const { default: mongoose } = require('mongoose');
 const app = express();
 const axios = require('axios');
@@ -15,6 +15,7 @@ mongoose.connect(process.env.DB_CONNECTION_STRING,
 .catch ( err => console.log(err) )
 
 app.use('/', route);
+
 
 
 app.listen(process.env.PORT || 3000, function () {

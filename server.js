@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require("cors");
 const bodyParser = require('body-parser');
-const route = require('../KASHMUSIC/routes/route'); 
+const route = require('./routes/route'); 
 const { default: mongoose } = require('mongoose');
 const app = express();
 app.use(bodyParser.json());

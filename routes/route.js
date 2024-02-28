@@ -35,6 +35,6 @@ router.post("/user/userLogins", UserLogin)
 //create recents
 router.post("/user/createrecents", createrecents)
 //recents
-router.get("/user/recents",recents)
+router.get("/user/recents/:userId",recents)
 
 module.exports = router;

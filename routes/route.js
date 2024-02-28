@@ -33,7 +33,7 @@ router.post("/user/userRegisters", createUser)
 // User Login
 router.post("/user/userLogins", UserLogin)
 //create recents
-router.post("/user/createrecents", createrecents)
+router.post("/user/createrecents/:userId", createrecents)
 //recents
 router.get("/user/recents/:userId",recents)
 

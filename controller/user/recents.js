@@ -2,6 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../../models/recentlyplayed');
+const UserModel = require("../../models/userModel");
+
 
 const recent = async (req, res) => {
     try {

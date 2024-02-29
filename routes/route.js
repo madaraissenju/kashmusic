@@ -15,7 +15,7 @@ const AdminLogin =require("../controller/admin/adminLogin");
 //**********************USER***************************// 
 const createUser = require('../controller/user/userRegister');
 const UserLogin = require('../controller/user/userLogin');
-const createrecents = require('../controller/user/createrecents');
+const createrecent = require('../controller/user/createrecents');
 const recents = require('../controller/user/recents');
 
 
@@ -33,7 +33,7 @@ router.post("/user/userRegisters", createUser)
 // User Login
 router.post("/user/userLogins", UserLogin)
 //create recents
-router.post("/user/createrecents/:userId", createrecents)
+router.post("/user/createrecents/:userId", createrecent)
 //recents
 router.get("/user/recents/:userId",recents)
 

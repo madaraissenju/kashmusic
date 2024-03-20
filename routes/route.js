@@ -17,7 +17,7 @@ const createUser = require('../controller/user/userRegister');
 const UserLogin = require('../controller/user/userLogin');
 const createrecent = require('../controller/user/createrecents');
 const recents = require('../controller/user/recents');
-
+const createPlaylist = require("../controller/user/createplaylists");
 
 //**************************ADMIN API's*******************//
 
@@ -36,5 +36,6 @@ router.post("/user/userLogins", UserLogin)
 router.post("/user/createrecents/:userId", createrecent)
 //recents
 router.get("/user/recents/:userId",recents)
-
+//playlist
+router.post("/user/createplaylists/:userId",createPlaylist)
 module.exports = router;

@@ -1,19 +1,18 @@
 
 const express = require('express');
 const router = express.Router();
-const User = require('../../models/songs');
-const UserModel = require("../../models/userModel");
-
+const User = require("../../models/userModel");
 
 const createrecents = async (req,res) => {
     try {
       const { userId } = req.params;
-  
+  console.log(userId)
       const { songName, songId, songImageUrl } = req.body;
   
       if (songName && songId && songImageUrl) {
-        const user = await User.findById(userId);
-  
+        const user = await User.findOne({ _id: userId });
+       // const user = await User.findById(userId);
+  console.log(user)
         if (!user) {
           return res.status(404).json({ error: 'User not found.' });
         }

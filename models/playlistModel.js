@@ -15,22 +15,23 @@ const songSchema = new mongoose.Schema({
     }
 });
 
-const userSchema = new mongoose.Schema({
+const playlistSchema = new mongoose.Schema({
     name: {
+        type: String,
+        required: true
+    },
+    description: {
         type: String
     },
-    email: {
-        type: String,
-        required: [true, "Email is required"]
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User', // Reference to the user who created the playlist
+        required: true
     },
-    password: {
-        type: String,
-        required: [true, "Password is required"]
-    },
-    recentlyPlayed: {
+    songs: {
         type: [songSchema], // Array of objects using songSchema
         default: [] // Optional: set default value as empty array
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Playlist", playlistSchema);

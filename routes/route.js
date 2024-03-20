@@ -38,4 +38,5 @@ router.post("/user/createrecents/:userId", createrecent)
 router.get("/user/recents/:userId",recents)
 //playlist
 router.post("/user/createplaylists/:userId",createPlaylist)
+
 module.exports = router;

@@ -1,4 +1,6 @@
-const Playlist = require("../../models/playlistModel");
+const express = require('express');
+const Playlist = require("../../models/playlistModel")
+
 
 const createPlaylist = async (req, res) => {
     try {
@@ -19,4 +21,4 @@ const createPlaylist = async (req, res) => {
     }
 };
 
-module.exports = { createPlaylist };
+module.exports =createPlaylist;

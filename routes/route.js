@@ -16,9 +16,8 @@ const AdminLogin =require("../controller/admin/adminLogin");
 const createUser = require('../controller/user/userRegister');
 const UserLogin = require('../controller/user/userLogin');
 const createrecent = require('../controller/user/createrecents');
-const recents = require('../controller/user/recents');
-
-//**************************ADMIN API's*******************//
+const createPlaylist = require('../controller/user/createplaylists');
+//**************** **********ADMIN API's*******************//
 
 // Create Admin 
 router.post("/admin/adminRegisters", createAdmin)
@@ -34,8 +33,7 @@ router.post("/user/userLogins", UserLogin)
 //create recents
 router.post("/user/createrecents/:userId", createrecent)
 //recents
-router.get("/user/recents/:userId",recents)
-//playlist
-
+router.post("/user/createplaylists/:userId", createPlaylist);
+//playliist
 
 module.exports = router;

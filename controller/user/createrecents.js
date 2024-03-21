@@ -2,7 +2,7 @@ const addToRecentlyPlayed = async (req, res) => {
   try {
     const { userId } = req.params;
     const songData = req.body;
-
+    
     // Find the user by userId
     const user = await User.findById(userId);
     if (!user) {

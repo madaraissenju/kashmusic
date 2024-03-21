@@ -1,5 +1,6 @@
 const UserModel = require("../../models/userModel");
 const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
 
 //*******************VALIDATIONS*********************/
 

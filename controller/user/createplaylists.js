@@ -1,5 +1,7 @@
 const express = require('express');
-const Playlist = require("../../models/playlistModel")
+const Playlist = require("../../models/playlistModel");
+const mongoose = require('mongoose');
+
 
 
 const createPlaylist = async (req, res) => {
